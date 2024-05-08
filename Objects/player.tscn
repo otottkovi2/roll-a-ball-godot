@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhj7a8e4tlihp"]
+
+[ext_resource type="Material" uid="uid://wa350w3d0w2c" path="res://materials/player.tres" id="1_iwouk"]
+[ext_resource type="Script" path="res://Scripts/PlayerMover.cs" id="2_3x00b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_63gsv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_xp3ar"]
+material = ExtResource("1_iwouk")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+script = ExtResource("2_3x00b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_63gsv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("SphereMesh_xp3ar")
+skeleton = NodePath("../../..")

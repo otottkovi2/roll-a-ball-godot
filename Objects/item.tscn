@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b17q8f4alv37b"]
+
+[ext_resource type="Script" path="res://Scripts/HitDetector.cs" id="1_3k4qm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lksrw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1u256"]
+albedo_color = Color(1, 1, 0, 1)
+roughness = 0.47
+
+[sub_resource type="BoxMesh" id="BoxMesh_26h78"]
+material = SubResource("StandardMaterial3D_1u256")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(-0.365195, 0.821158, -0.438557, 0.300845, 0.549919, 0.779155, 0.88098, 0.152606, -0.447869, 0, 0, 0)
+mass = 0.01
+gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_3k4qm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_lksrw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+transform = Transform3D(1, 2.98023e-08, 2.98023e-08, -2.98023e-08, 1, -7.45058e-09, 2.98023e-08, -7.45058e-09, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_26h78")
+skeleton = NodePath("../../..")

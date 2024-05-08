@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxhxym0bqrf66"]
+
+[ext_resource type="Script" path="res://Scripts/WinWindow.cs" id="1_2xda5"]
+
+[node name="WinMessage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -87.0
+offset_right = 118.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 84
+dragger_visibility = 1
+script = ExtResource("1_2xda5")
+
+[node name="ColorRect" type="ColorRect" parent="CenterContainer"]
+layout_mode = 2
+color = Color(1, 1, 1, 0.141176)
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/ColorRect"]
+layout_mode = 2
+offset_right = 241.0
+offset_bottom = 84.0
+
+[node name="Label" type="Label" parent="CenterContainer/ColorRect/CenterContainer"]
+layout_mode = 2
+text = "You Win!"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/ColorRect"]
+layout_mode = 2
+offset_top = 96.0
+offset_right = 241.0
+offset_bottom = 172.0
+
+[node name="Button" type="Button" parent="CenterContainer/ColorRect/CenterContainer2"]
+layout_mode = 2
+text = "Exit"

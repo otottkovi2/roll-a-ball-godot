@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhewc8ulmyo8u"]
+
+[ext_resource type="PackedScene" uid="uid://csnx5oak4ks80" path="res://Objects/level.tscn" id="1_3e2fr"]
+[ext_resource type="PackedScene" uid="uid://dhj7a8e4tlihp" path="res://Objects/player.tscn" id="2_iqmcr"]
+[ext_resource type="PackedScene" uid="uid://b17q8f4alv37b" path="res://Objects/item.tscn" id="3_qtwor"]
+[ext_resource type="Script" path="res://Scripts/HitCounter.cs" id="4_6kh0f"]
+[ext_resource type="PackedScene" uid="uid://cxhxym0bqrf66" path="res://Objects/WinMessage.tscn" id="5_kr13m"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0393577, 0.997713, -0.054958, -0.580905, 0.0675974, 0.81116, 0.813019, 0, 0.582237, -12.4093, 7.68845, 6.85445)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.00619948, 0.486564, -0.873623, -0.00841156, 0.873583, 0.486602, 0.999945, 0.0103652, -0.001323, -7.55327, 6.72033, -0.0103702)
+
+[node name="level" parent="." instance=ExtResource("1_3e2fr")]
+
+[node name="player" parent="." instance=ExtResource("2_iqmcr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.11135, 0)
+
+[node name="item" parent="." instance=ExtResource("3_qtwor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01772, 1.01745, 0)
+
+[node name="item2" parent="." instance=ExtResource("3_qtwor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01745, 2.87393)
+
+[node name="item3" parent="." instance=ExtResource("3_qtwor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20232, 1.01745, 0)
+
+[node name="item4" parent="." instance=ExtResource("3_qtwor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.947951, 1.01745, -2.22317)
+
+[node name="hit counter" type="Node" parent="."]
+script = ExtResource("4_6kh0f")
+
+[node name="WinMessage" parent="." instance=ExtResource("5_kr13m")]
+visible = false
